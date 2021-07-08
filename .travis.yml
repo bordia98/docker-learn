@@ -1,0 +1,11 @@
+sudo: required
+language: generic 
+
+services:
+  - docker
+
+before_install:
+  - docker build -t bordia98/docker-learn -f Dockerfile.dev . 
+
+script:
+  - docker run -e CI=true bordia98/docker-learn npm run test
